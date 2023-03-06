@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  lang="vi">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Product Management</h3>
+<p>
+  <a th:href="@{/create}">
+    Add new product
+  </a>
+</p>
+<table id = "products">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Music Name</th>
+    <th>Musician</th>
+    <th>Category</th>
+    <th>Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="music : ${musics}">
+    <td th:text="${music.id}"></td>
+    <td th:text="${music.name}"></td>
+    <td th:text="${music.musician}"></td>
+    <td th:text="${music.category}"></td>
+<!--    <td><img width="100" height="100" th:src="@{'/vipsilip/' + ${music.music}}" alt=""></td>-->
+    <td>
+      <audio controls>
+        <source th:src="@{'http://localhost:8080/vipsilip/' + ${music.music}}" type="audio/mpeg" >
+      </audio>
+    </td>
+
+  </tr>
+  </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

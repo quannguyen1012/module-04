@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Delete Province</h1>
+    <p>
+        <a th:href="@{/provinces}">Back to list</a>
+    </p>
+    <form th:action="@{/delete-province}" th:object="${province}" method="post">
+
+        <span>ID</span>
+        <input type="text" th:text="*{id}"><br><br>
+
+        <span>Name</span>
+        <input type="text" th:text="*{name}"><br><br>
+
+        <input type="submit" value="Delete">
+    </form>
+</body>
+</html>

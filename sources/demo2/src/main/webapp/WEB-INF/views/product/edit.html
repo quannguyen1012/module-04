@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Product</title>
+</head>
+<body>
+    <h1>Edit Product</h1>
+
+<p>
+    <a th:href="@{/shop}">Back to shop</a>
+</p>
+    <th:block th:if="${massage}">
+        <p th:text="${massage}"></p>
+    </th:block>
+<form th:action="@{/edit-product}" th:object="${product}"
+      method="POST" novalidate="novalidate" enctype="multipart/form-data">
+    <table>
+        <input th:type="hidden" name="id" th:field="${product.id}">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" th:field="${product.name}"></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><input type="text" th:field="${product.description}"></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input type="text" th:field="${product.price}"></td>
+        </tr>
+        <tr>
+            <td>image</td>
+            <td><input type="file" th:field="${product.image}"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Edit"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student" class="com.cg.injection.setter.Student"/>
+
+    <bean id="clazz" class="com.cg.injection.setter.Clazz"
+          p:id="1" p:name="Ty" p:student-ref="student"/>
+</beans>
